@@ -1,0 +1,60 @@
+<div class="container-fluid">
+  <div class="row">
+    {{#if success}}
+      <div class="bg-success">{{success}}</div>
+    {{/if}}
+    {{#if error}}
+      <div class="bg-danger">{{error}}</div>
+    {{/if}}
+  </div>
+
+  <div class="row">
+    <form action="/signup" method="POST" encType="multipart/form-data" class="row">
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Username:</label>
+        <input type="text" class="d-inline-block form-control" name="username">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Full Name:</label>
+        <input type="text" class="d-inline-block form-control" name="name">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Email:</label>
+        <input type="email" class="d-inline-block form-control" name="email">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Password:</label>
+        <input type="password" class="d-inline-block form-control" name="password">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Confirm Password:</label>
+        <input type="password" class="d-inline-block form-control" name="confirmPassword">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Phone:</label>
+        <input type="number" class="d-inline-block form-control" name="phone">
+      </div>
+      <div class="form-group col-md-4">
+        <label class="d-inline-block">State:</label>
+        <input type="text" class="d-inline-block form-control" name="state">
+      </div>
+      <div class="form-group col-md-4">
+        <label class="d-inline-block">City:</label>
+        <input type="text" class="d-inline-block form-control" name="city">
+      </div>
+      <div class="form-group col-md-4">
+        <label class="d-inline-block">Street:</label>
+        <input type="text" class="d-inline-block form-control" name="street">
+      </div>
+      <div class="form-group col-md-6">
+        <label class="d-inline-block">Photo:</label>
+        <input type="file" class="d-inline-block form-control" name="photo" accept="*.jpg|*.png|*.gif">
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-info" value="Register">
+      </div>
+    </form>
+  </
+  div>
+</div
+>

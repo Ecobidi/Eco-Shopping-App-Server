@@ -1,0 +1,33 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-6">
+      <form method="POST" action="/store-settings">
+        <fieldset>
+          <legend>Store Settings</legend>
+          <div class="form-group">
+            <label>Currency</label>
+            <input type="text" class="form-control" name="currency" value="{{currency}}"></div>
+          <div class="form-group">
+            <label>Tax(%)</label>
+            <input type="text" class="form-control" name="tax" value="{{tax}}"></div>
+          <div class="form-group">
+            <label>Shipping Charges</label>
+            <input type="text" class="form-control" name="shippingCharges" value="{{shippingCharge}}"></div>
+          <div class="form-group">
+            <label>Store Name</label>
+            <input type="text" class="form-control" name="name" value="{{name}}"></div>
+          <div class="form-group">
+            <label>Store Address</label>
+          <input type="text" class="form-control" name="address" value="{{address}}"></div>
+          <div class="form-group">
+            <label>Store Contact No.</label>
+          <input type="text" class="form-control" name="phone" value="{{phone}}"></div>
+          <div class="form-group">
+            <button class="btn btn-outline-dark" type="submit">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

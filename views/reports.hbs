@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 success text-center py-4 bg-success text-white">
+      <h6 class="bold">Store Report</h6>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row side-drop-shadow">
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center py-4 mb-3">
+      <div class="row store-stats">
+        <div class="col-lg-3 col-md-4 col-sm-4 mb-2">
+          <h6 class="lead">$103.3</h6>
+          <p>Total Revenue</p>                    
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-4 mb-2">
+          <h6 class="lead">10</h6>
+          <p>Orders In Processing</p>                    
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-4 mb-2">
+          <h6 class="lead">1</h6>
+          <p>Orders Completed</p>                    
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-4 mb-2">
+          <h6 class="lead">0</h6>
+          <p>Orders Cancelled</p>                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row pt-4">
+    <div class="col-lg-8 col-md-12">
+      <h6 class="bg-primary text-center py-1 text-center text-white">Recent Orders</h6>
+      <table class="table table-light">
+        {{#if recentOrders}}
+        <thead class="thead-light">
+          <tr>
+            <th>Order ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Status</th>
+          </tr>
+        </thead>        
+        <tbody>
+          {{#each recentOrders}}
+          <tr>
+            <td>{{this._id}}</td>
+            <td>{{this.product.name}}</td>
+            <td>{{this.customer.phone}}</td>
+            <td><a href="#" class="btn btn-sm btn-info"><small>{{this.customer.statusLabel}}</small></a></td>
+          </tr>
+          {{/each}}
+        </tbody>
+        {{else}}
+        <P class="bg-danger text-white text-center lead py-4 font-weight-bold">No Orders Yet!</p>
+        {{/if}}
+      </table>
+    </div>
+
+    <div class="col-lg-4 col-md-12">
+      <h6 class="bg-success text-center text-white py-1">Recently Added Products</h6>
+      {{#if recentProducts}}
+      {{#each recentProducts}}
+      <div class="product-list-item mb-2">
+        <div class="product-image mr-1">
+          {{#if this.image}}
+          <img class="img-fluid" src="/uploads/products/photo/{{this.image}}" alt="picture">
+          {{else}}
+          <img class="img-fluid" src="images/shopping-cart.png" alt="picture">
+          {{/if}}
+        </div>
+        <div class="product-meta">
+          <a href="#">{{this.name}}</a>
+          <p>Availability In Stock: {{this.quantity}}</p>
+        </div>
+        <span class="badge badge-pill badge-info">${{this.sellingPrice}}</span>
+      </div>
+      {{/each}}
+      {{/if}}
+    </div>
+  </div>
+</div>

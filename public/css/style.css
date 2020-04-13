@@ -1,0 +1,157 @@
+* { font-family: "lato", "roboto", "open sans", "arial", sans-serif; }
+
+body {
+  padding-top: 56px; /* accomdate navbar fixed position height */
+}
+br {
+  margin-bottom: 2rem;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-brand:hover {
+  color: #ccc;
+  cursor: pointer;
+}
+
+.sidebar-sticky {
+  padding-top: 1em;
+  z-index: 100;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  overflow: auto;
+}
+
+.sidebar-sticky a {
+  color: #fff !important;
+}
+
+.sidebar-sticky a:hover {
+  color: #ccc !important;
+}
+
+.main-dashboard {
+  padding: 0.8em;
+}
+
+.top-detail {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  float: left;
+  padding: 0;
+  box-shadow: 0 3px 3px #efefef;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.top-detail > div {
+  display: inline-block;
+  padding: 4px;
+}
+
+.top-detail h6 {
+  margin-bottom: 0.1em;
+}
+
+.b-icon {
+  font-size: 3.5rem;
+  position: relative;
+  top: 2px;
+}
+
+.display-image {
+  width: 4em;
+  height: 4em;
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin-right: 0.4em;
+}
+
+.side-drop-shadow {
+  box-shadow: 1px 0 1px #28a745, -1px 0 1px #28a745;
+}
+
+thead {
+  box-shadow: 0 1px 1px #2f2f2f;
+}
+
+.inline-form-control {
+  display: inline;
+  width: auto;
+}
+
+.product-list-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 1px #ccc;
+}
+
+.product-list-item > div {
+  display: inline-block;
+}
+
+.product-list-item .badge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.product-image, .mini-square-thumbnail {
+  width: 50px !important;
+  height: 50px !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.img-round {
+  border-radius: 50%;
+}
+
+.fixed-bottom {
+  position: fixed;
+  height: 100px !important;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0.8em 0;
+  background-color: peachpuff;
+  z-index: 10000;
+}
+
+.fixed-bottom h1 {
+  border-radius: 20px;
+  font-size: 2em;
+  line-height: 0.8em;
+  padding: 0.8em 0;
+}
+
+@media (min-width: 768px) {
+  .main-content > .row:first-child {
+    display: block;
+  }
+
+  .main-content .sidebar-sticky {
+    display: inline-block;
+    position: fixed;
+    top: 56px;
+  }
+
+  .main-content .main-dashboard {
+    float: right;
+    clear: right;
+  }
+}
+

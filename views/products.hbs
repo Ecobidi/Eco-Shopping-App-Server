@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="mb-3">All Products</h2>
+    </div>
+    <div class="col-md-12">
+      <a href="/products/new" class="btn btn-primary text-white">Add Products</a>
+      <hr>
+    </div>
+    <div class="col-md-12 mx-2">
+      <p class="lead">Manage Product</p>
+      <div class="clearfix">
+        <p class="float-sm-left"><span>Show</span>
+          <select class="form-control inline-form-control" name="numberOfEntries">
+            <option value="10">10</option>
+            <option value="10">20</option>
+            <option value="10">30</option>
+            <option value="10">40</option>
+            <option value="10">50</option>
+          </select>
+          <span>entries</span>
+        </p>
+        <form class="form-inline float-sm-right" method="GET" action="#">
+          <div class="form-group">
+            <label for="">Search</label>
+            <input class="form-control" type="search" name="searchProduct">
+          </div>
+        </form>
+      </div>
+      {{#if products}}
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Image</th>
+            <th>In-stock</th>
+            <th>Sell-Price</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each products}}
+          <tr>
+            <td>1</td>
+            <td>{{this.name}}</td>
+            {{#if this.image}}
+                <td><img src="/uploads/products/photo/{{this.image}}" class="mini-square-thumbnail" alt=""></td>
+            {{else}}
+                <td><img src="/images/shopping-cart.png" class="mini-square-thumbnail" alt=""></td>
+            {{/if}}
+            <td>{{this.quantity}}</td>
+            <td>${{this.sellingPrice}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Button group">
+                <a href="" class="btn btn-info btn-sm"> <i class="fa fa-binoculars"></i> </a>
+                <a href="/products/edit?_id={{this._id}}" class="btn btn-warning btn-sm"> <i class="fa fa-edit"></i> </a>
+                <a class="btn btn-danger btn-sm"> <i class="fa fa-remove" aria-hidden="true"></i> </a>
+              </div>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        <tfoot>
+          <p>Showing 1 to 6 of 6 entries</p>
+        </tfoot>
+      </table>
+      {{/if}}
+    </div>
+  </div>
+</div>

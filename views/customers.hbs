@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 mb-4">
+      <h6 class="mb-3">All Customers</h6>
+    </div>
+    
+    <div class="col-md-12 mx-2">
+      <div class="d-block clearfix bold">
+        <p class="float-sm-left"><span>Show</span>
+          <select class="form-control inline-form-control" name="numberOfEntries">
+            <option value="10">10</option>
+            <option value="10">20</option>
+            <option value="10">30</option>
+            <option value="10">40</option>
+            <option value="10">50</option>
+          </select>
+          <span>entries</span>
+        </p>
+        <form class="form-inline float-sm-right" method="GET" action="#">
+          <div class="form-group">
+            <label class="mr-1">Search</label>
+            <input class="form-control" type="search" name="searchOrder">
+          </div>
+        </form>
+      </div>
+      {{#if customers}}
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each customers}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td><span class="badge badge-pill badge-danger">{{this.statusLabel}}</span></td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Button group">
+                <button class="btn btn-info btn-sm">View</button>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </div>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Showing 1 to 6 of 6 entries</td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+      {{/if}}
+    </div>
+  </div>
+</div>

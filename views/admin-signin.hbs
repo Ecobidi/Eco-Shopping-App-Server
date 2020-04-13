@@ -1,0 +1,32 @@
+{{! body styling for Admin Signin Page}}
+<style type="text/css">
+  body {
+    background: linear-gradient(to bottom, #87cefaf7 59%, #f321bce3);
+  }
+</style>
+
+<div class="container-fluid">
+  <div class="mx-auto mt-4em">
+    <div class="text-white text-center"> 
+      <img class="mini-square-thumbnail img-round px-2 py-2" src="images/shopping-cart.png" alt="logo">
+      <h1>Eco-Shopping-Mall</h1>
+      <h3 class="lead">Admin Panel</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mx-auto px-2 py-2 bg-light">
+      <form method="POST" action="/signin">
+        <h5 class="bold text-center text-danger">Sign In</h5>
+        <div class="form-group">
+          <input type="username" name="username" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" class="form-control">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>

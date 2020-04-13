@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="mb-3">All Orders</h2>
+    </div>
+    <div class="col-12 mb-4">
+      <button class="btn btn-primary text-white">Add Order</button>
+    </div>
+    <div class="col-12 mx-2">
+      <h3>Manage Orders</h3>
+      <div class="clearfix">
+        <p class="float-sm-left"><span>Show</span>
+          <select class="form-control inline-form-control" name="numberOfEntries">
+            <option value="10">10</option>
+            <option value="10">20</option>
+            <option value="10">30</option>
+            <option value="10">40</option>
+            <option value="10">50</option>
+          </select>
+          <span>entries</span>
+        </p>
+        <form class="form-inline float-sm-right" method="POST" action="#">
+          <div class="form-group">
+            <label class="mr-1">Search</label>
+            <input class="form-control" type="search" name="searchOrder">
+          </div>
+        </form>
+      </div>
+      {{#if orders}}
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+            <th>Order ID</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td>{{this.orderID}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.phone}}</td>
+            <td>{{this.date}}</td>
+            <td>{{this.status}}</td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Button group">
+                <button class="btn btn-info btn-sm">View</button>
+                <button class="btn btn-warning btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+              </div>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        <tfoot>
+          <p>Showing 1 to 6 of 6 entries</p>
+        </tfoot>
+      </table>
+      {{/if}}
+    </div>
+  </div>
+</div>

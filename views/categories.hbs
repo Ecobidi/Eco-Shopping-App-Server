@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row">
+
+    {{#if error_msg}}
+    <div class="py-2 bg-danger">{{error_msg}}</div>
+    {{/if}}
+    {{#if success_msg}}
+    <div class="py-2 bg-success">{{success_msg}}</div>
+    {{/if}}
+
+    <div class="col-md-12">
+      <h6 class="mb-3 display-4">Category</h6>
+    </div>
+    <div class="col-md-12">
+      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#add-category">Add Category</button>
+    </div>
+    <div class="col-md-12 mx-2">
+      <br>
+      <hr>
+      <h6 class="lead text-center">All Category List</h6>
+      <div class="clearfix bold">
+        <p class="float-sm-left"><span>Show</span>
+          <select class="form-control inline-form-control" name="numberOfEntries">
+            <option value="10">10</option>
+            <option value="10">20</option>
+            <option value="10">30</option>
+            <option value="10">40</option>
+            <option value="10">50</option>
+          </select>
+          <span>entries</span>
+        </p>
+        <form class="form-inline float-sm-right" method="POST" action="/search">
+          <div class="form-group">
+            <label class="mr-1">Search</label>
+            <input class="form-control" type="search" name="searchOrder">
+          </div>
+        </form>
+      </div>
+      <table class="table table-light">
+        <thead class="thead-light">
+          <tr>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each categories}}
+          <tr>
+            <td>{{this.name}}</td>
+            <td><img class="mini-square-thumbnail" src="/uploads/category/photo/{{this.image}}"></td>
+            <td>
+              <div class="btn-group" role="group" aria-label="Button group">
+                <button class="btn btn-warning btn-sm edit-category" data-toggle="modal" data-target="#edit-category" data-name="{{this.name}}" data-image="{{this.image}}" data-id="{{this._id}}">
+                Edit
+                </button>
+                <a href="/categories/delete/{{this._id}}" class="btn btn-danger btn-sm">Delete</a>
+              </div>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+        <tfoot>
+          <p>Showing 1 to 6 of 6 entries</p>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+{{! Add new Category Modal}}
+<div id="add-category" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="my-modal-title">Add New Category</h5>
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/categories/new" encType="multipart/form-data">
+          <div class="form-group"> 
+            <label class="d-block">Category Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Enter Category Name" required="required">
+          </div>
+          <div class="form-group">
+            <label class="d-block">Category Image</label>
+            <input type="file" class="form-control" name="photo" accept="*.jpg|*.png|*.gif" required="required">
+            <span>Please upload GIF, JPG, Jpeg, PNG files only.</span>
+          </div>
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-success">Add Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Edit Category Modal}}
+<div id="edit-category" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="my-modal-title">Edit Category</h5>
+        <button class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="/categories/edit" encType="multipart/form-data">
+          <div class="form-group"> 
+            <label class="d-block">Category Name</label>
+            <input id="nameBox" type="text" name="name" class="form-control" placeholder="Enter Category Name" required="required">
+          </div>
+          <div class="form-group">
+            <label class="d-block">Category Image</label>
+            <input type="file" class="form-control" name="photo" accept="*.jpg|*.png|*.gif">
+            <span>Please upload GIF, JPG, Jpeg, PNG files only.</span>
+            <div>
+              <img id="categoryImage" class="img-thumbnail" width="100" height="100"/>
+            </div>
+          </div>
+          <input type="hidden" id="hidden-id-field" name="id"> {{! hidden _id field}}
+          <div class="form-group text-right">
+            <button type="submit" class="btn btn-success">Edit Category</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const categoryImageDirectory = "/uploads/category/photo/";
+  let nameBox = document.getElementById("nameBox");
+  let hiddenIdField = document.getElementById("hidden-id-field");
+  let categoryImage = document.getElementById("categoryImage");
+  let editCategories = document.getElementsByClassName("edit-category");
+
+  for (let i = 0, len = editCategories.length; i < len; i++) {
+    editCategories[i].addEventListener("click", (e) => {
+      let dataset = e.target.dataset;
+      hiddenIdField.value = dataset.id
+      nameBox.value = dataset.name;
+      categoryImage.src = categoryImageDirectory + dataset.image;
+    });
+  }
+</script>

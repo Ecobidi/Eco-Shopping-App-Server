@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/lib/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/"><i class="fa fa-opencart" aria-hidden="true"></i> Eco-Shopping-Mall</a>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><i class="fa fa-user" aria-hidden="true"></i> Admin <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid main-content">
+      <div class="row clearfix">
+        <div class="sidebar-sticky bg-dark col-lg-2 col-md-3 col-sm-12 ">
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link active" href="/">
+            <i class="fa fa-home" aria-hidden="true"></i> 
+            Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="/orders">
+            <i class="fa fa-first-order" aria-hidden="true"></i> 
+            Orders</a></li>
+            <li class="nav-item"><a href="/store-settings" class="nav-link"><i class="fa fa-gear" aria-hidden="true"></i> 
+            Store Settings</a></li>
+            <li class="nav-item"><a href="/categories" class="nav-link"><i class="fa fa-shopping-basket" aria-hidden="true"></i> 
+            Categories</a></li>
+            <li class="nav-item"><a href="/products" class="nav-link"><i class="fa fa-cart-plus" aria-hidden="true"></i> 
+            Products</a></li>
+            <li class="nav-item"><a href="/customers" class="nav-link"><i class="fa fa-users" aria-hidden="true"></i> 
+            Manage Users</a></li>
+            <li class="nav-item"><a href="/reports" class="nav-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i> 
+            Reports</a></li>
+            <li class="nav-item"><a href="/notifications" class="nav-link"><i class="fa fa-bell" aria-hidden="true"></i>  
+            Push Notifications</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> 
+              Logout</a></li>
+          </ul>
+        </div>
+      
+        <div class="col-lg-10 col-md-9 col-sm-12 bg-light main-dashboard">
+          <div class="container-fluid">
+            <h2>Ecommerce Store Dashboard</h2>
+            <div class="row mb-3 bg-light">
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                <a href="#" class="text-white top-detail bg-info">
+                  <div class="display-image"><i class="b-icon b-icon-1 fa fa-first-order" aria-hidden="true"></i> </div>
+                  <div>
+                    <h6>ORDERS</h6>
+                    <p class="bold">11</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                <a href="#" class="text-white top-detail bg-warning">
+                  <div class="display-image"><i class="b-icon b-icon-2 fa fa-shopping-basket" aria-hidden="true"></i> </div>
+                  <div>
+                    <h6>CATEGORIES</h6>
+                    <p class="bold">8</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                <a href="#" class="text-white top-detail bg-success">
+                  <div class="display-image"><i class="b-icon b-icon-3 fa fa-cart-plus" aria-hidden="true"></i> </div>
+                  <div>
+                    <h6>PRODUCTS</h6>
+                    <p class="bold">78</p>
+                  </div>
+                </a>
+              </div>
+              <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                <a href="#" class="text-white top-detail bg-danger">
+                  <div class="display-image"><i class="b-icon b-icon-4 fa fa-users" aria-hidden="true"></i> </div>
+                  <div>
+                    <h6>ALL USERS</h6>
+                    <p class="bold">13</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            {{{body}}}
+            
+          </div>
+        </div>
+      </div>
+      {{!--<div class="fixed-bottom text-center text-white">
+        <h1 class="bg-danger">ADMIN PANEL</h1>
+      </div>--}}
+    </div>
+
+    <script type="text/javascript" src="/lib/js/jquery.min.js"></script>
+    <!-- bootstrap.bundle.min.js includes both bootstrap.js and popper.js -->
+    <script type="text/javascript" src="/lib/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

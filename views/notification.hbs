@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="text-center mb-4">
+        <h3>Choose Notification Type</h3>
+        <select class="form-control inline-form-control" name="notificationType" id="select-notification-type">
+          <option value="simple">Simple Notification</option>
+          <option value="custom">Custom Notification</option>
+        </select>
+      </div>
+      <hr>
+      <form method="GET" action="#" class="pt-4">
+        <fieldset>
+          <legend>Simple Notification Panel</legend>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="title"></div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea name="message" class="form-control"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Product</label>
+            <select name="notification-product-select">
+              <option>Choose here...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Image</label>
+            <input type="file" class="form-control py-2" name="image"></div>
+          <div class="form-group">
+            <button class="btn btn-outline-dark" type="submit">Submit</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
